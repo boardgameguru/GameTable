@@ -1,9 +1,8 @@
-# README
+# GameTable
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GameTable is a project created and developed by me (Thomas Spencer) to help fufil a need in my personal life. I organize and facilitate various tabletop game nights across the GTA, and have been trouble coordinating game facilitators to meet the increasing demand of customers. Enter...
 
-Things you may want to cover:
+![GameTable](app/assets/images/GameTable.svg)
 
 * Ruby version
 
