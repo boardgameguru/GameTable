@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resource :hosts
     resources :tables
     resource :users
-    resources :sessions, only: %i(new create destroy)
+    resource :sessions, only: %i(new create destroy)
 end
