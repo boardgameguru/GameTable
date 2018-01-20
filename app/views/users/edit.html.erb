@@ -1,0 +1,35 @@
+<h1>Edit Information for <%= @user.first_name %> <%= @user.last_name %> </h1>
+
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message|%>
+        <p><%= message %></p>
+    <% end %>
+<% end %>
+
+<%= form_for @user, url: users_path,  html: {method: "patch"} do |u| %>
+    <div class="field">
+        <%= u.label :first_name %>
+        <%= u.text_field :first_name %>
+    </div>
+    <div class="field">
+        <%= u.label :last_name %>
+        <%= u.text_field :last_name %>
+    </div>
+<!--
+    <div class="field">
+        <%= u.label :email %>
+        <%= u.email_field :email %>
+    </div>
+-->
+    <div class="field">
+        <%= u.label :password %>
+        <%= u.password_field :password %>
+    </div>
+    <div class="field">
+        <%= u.label :password_confirmation %>
+        <%= u.password_field :password_confirmation %>
+    </div>
+    <div class="field submit">
+        <%= u.submit "Update Information" %>
+    </div>
+<% end %>
