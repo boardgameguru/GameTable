@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:notice] = "Successfully signed up!"
+            session[:user_id] = @user.id
             redirect_to root_path
         else
             flash[:alert] = "Please try again. Something went wrong."
