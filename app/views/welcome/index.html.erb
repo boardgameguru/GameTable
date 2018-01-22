@@ -1,7 +1,7 @@
 <h1>Welcome to Gametable!</h1>
 
 <% if current_user %>
-    <h3><%= link_to "Account: #{current_user.first_name} #{current_user.last_name}", edit_users_path %> | <%= link_to "Log Out", sessions_path, method: :delete %></h3>
+    <h3><%= link_to "Account: #{current_user.first_name} #{current_user.last_name}", users_path %> | <%= link_to "Log Out", sessions_path, method: :delete %></h3>
 <% else %>
     <h3><%= link_to "Sign Up", new_users_path %> | <%= link_to "Log In", new_sessions_path %></h3>
 <% end %>
