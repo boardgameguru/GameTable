@@ -1,19 +1,23 @@
-<h1>Edit Information for <%= @user.first_name %> <%= @user.last_name %> </h1>
+<h1>Edit Information for <%= @host.name %></h1>
 
-<% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |message|%>
+<% if @host.errors.any? %>
+    <% @host.errors.full_messages.each do |message|%>
         <p><%= message %></p>
     <% end %>
 <% end %>
 
-<%= form_for @user, url: users_path,  html: {method: "patch"} do |u| %>
+<%= form_for @host, url: hosts_path,  html: {method: "patch"} do |u| %>
     <div class="field">
-        <%= u.label :first_name %>
-        <%= u.text_field :first_name %>
+        <%= u.label :name %>
+        <%= u.text_field :name %>
     </div>
     <div class="field">
-        <%= u.label :last_name %>
-        <%= u.text_field :last_name %>
+        <%= u.label :address %>
+        <%= u.text_field :address %>
+    </div>
+    <div class="field">
+        <%= u.label :phone %>
+        <%= u.telephone_field :phone %>
     </div>
     <div class="field">
         <%= u.label :email %>

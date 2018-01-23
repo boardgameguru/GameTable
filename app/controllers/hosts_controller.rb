@@ -1,5 +1,9 @@
 class HostsController < ApplicationController
 
+    def show
+       @host = current_host
+    end
+
     def new
         @host = Host.new
     end
@@ -14,6 +18,22 @@ class HostsController < ApplicationController
         else
             flash[:alert] = "We're sorry, but something went wrong."
             render :new
+        end
+    end
+
+    def edit
+       @host = current_host
+    end
+
+    def update
+        @host = current_host
+
+        if @host.update_attributes(host_params)
+            flash[:notice] = "Your information has been updated"
+            redirect_to root_path
+        else
+            flash[:alert] = "Sorry, something went wrong"
+            render :edit
         end
     end
 
