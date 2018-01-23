@@ -1,0 +1,37 @@
+<h1>Register your buisness!</h1>
+
+<% if @host.errors.any? %>
+    <% @host.errors.full_messages.each do |message|%>
+        <p><%= message %></p>
+    <% end %>
+<% end %>
+
+<%= form_for @host do |u| %>
+    <div class="field">
+        <%= u.label :name %>
+        <%= u.text_field :name %>
+    </div>
+    <div class="field">
+        <%= u.label :address %>
+        <%= u.text_field :address %>
+    </div>
+    <div class="field">
+        <%= u.label :phone %>
+        <%= u.telephone_field :phone %>
+    </div>
+    <div class="field">
+        <%= u.label :email %>
+        <%= u.text_field :email %>
+    </div>
+    <div class="field">
+        <%= u.label :password %>
+        <%= u.password_field :password %>
+    </div>
+    <div class="field">
+        <%= u.label :password_confirmation %>
+        <%= u.password_field :password_confirmation %>
+    </div>
+    <div class="field submit">
+        <%= u.submit "Register" %>
+    </div>
+<% end %>

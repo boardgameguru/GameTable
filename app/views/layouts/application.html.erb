@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gametable</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Gametable</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
 
-  <body>
-    <%= yield %>
-  </body>
+        <% if current_user %>
+            <p>Hello <%= current_user.first_name + ' ' + current_user.last_name %></p>
+        <% elsif current_host %>
+            <p>Hello <%= current_host.name %></p>
+        <% end %>
+
+        <% if flash.any? %>
+            <% flash.each do |key, value| %>
+                <p class="<%= key %>"><%= value %></p>
+            <% end %>
+        <% end %>
+
+        <%= yield %>
+     </body>
 </html>

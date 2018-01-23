@@ -1,3 +1,15 @@
 <h1>Welcome to Gametable!</h1>
 
+<% if current_user %>
+    <h4><%= link_to "Account: #{current_user.first_name} #{current_user.last_name}", users_path %> | <%= link_to "Log Out", sessions_path, method: :delete %></h4>
+<% elsif current_host %>
+    <h4><%= link_to "Account: #{current_host.name}", hosts_path %> | <%= link_to "Log Out", sessions_path, method: :delete %></h4>
+<% else %>
+    <h4><%= link_to "Sign Up", new_users_path %> | <%= link_to "Log In", new_sessions_path %></h4>
+<% end %>
+
 <%= image_tag 'GameTable.svg', alt: 'Welcome to GameTable' %>
+
+<h3>We're always looking for new buisnesses to join our community.</h3>
+
+<h4><%= link_to "Register your buisness", new_hosts_path %></h4>
