@@ -11,6 +11,8 @@
 
         <% if current_user %>
             <p>Hello <%= current_user.first_name + ' ' + current_user.last_name %></p>
+        <% elsif current_host %>
+            <p>Hello <%= current_host.name %></p>
         <% end %>
 
         <% if flash.any? %>
