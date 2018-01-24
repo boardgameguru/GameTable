@@ -14,7 +14,7 @@ class HostsController < ApplicationController
         if @host.save
             flash[:notice] = "Welcome to GameTable, #{@host.name}!"
             session[:host_id] = @host.id
-            redirect_to root_path
+            redirect_to dashboard_path
         else
             flash[:alert] = "We're sorry, but something went wrong."
             render :new

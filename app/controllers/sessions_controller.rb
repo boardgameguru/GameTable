@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             if user.authenticate(session_params[:password])
                 flash[:notice] = "Successfuly logged in as #{user.first_name} #{}!"
                 session[:user_id] = user.id
-                redirect_to root_path
+                redirect_to dashboard_path
             else
                 flash[:alert] = "Invalid credentials"
                 render :new
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
             if host.authenticate(session_params[:password])
                 flash[:notice] = "Successfuly logged in as #{host.name}!"
                 session[:host_id] = host.id
-                redirect_to root_path
+                redirect_to dashboard_path
             else
                 flash[:alert] = "Invalid credentials"
                 render :new
