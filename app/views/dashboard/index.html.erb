@@ -8,8 +8,8 @@
     <% @main.each do |table| %>
         <div>
             <h3><%= table.table_name %></h3>
-            <h4><%= table.table_date%></h4>
-            <h4><%= table.table_time%></h4>
+            <h4><%= table.table_date.to_formatted_s(:long)%></h4>
+            <h4><%= table.table_time.strftime("Starts at %I:%M%p")%></h4>
         </div>
     <% end %>
     <%= link_to "Create a new table", new_table_path %>
