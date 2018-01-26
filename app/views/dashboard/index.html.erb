@@ -2,6 +2,13 @@
 
 <% if current_user %>
     <h2>Registered Events</h2>
+    <% @main.each do |reservation| %>
+        <div>
+            <h3><%= reservation.table_name %></h3>
+            <h4><%= reservation.table_date.to_formatted_s(:long)%></h4>
+            <h4><%= reservation.table_time.strftime("Starts at %I:%M%p")%></h4>
+        </div>
+    <% end %>
     <%= link_to "View available tables", tables_path %>
 <% elsif current_host %>
     <h2>Current Tables</h2>
