@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :tables
     resource :users
     resource :sessions, only: %i(new create destroy)
+
+    post 'tables/:table_id' => 'tables#reservation'
 end

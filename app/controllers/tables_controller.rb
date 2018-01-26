@@ -22,7 +22,15 @@ class TablesController < ApplicationController
     end
 
     def reservation
+        @table = Table.find(params[:table_id])
 
+        if @table.users << current_user
+            flash[:notice] = "You have been registered"
+            redirect_to dashboard_path
+        else
+            flash[:alert] = "Sorry, something went wrong. Please try again."
+            redirect_to action: "index"
+        end
     end
 
     private
