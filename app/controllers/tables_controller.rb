@@ -1,5 +1,9 @@
 class TablesController < ApplicationController
 
+    def index
+       @tables = Table.all
+    end
+
     def new
        @table = Table.new
     end
@@ -15,6 +19,10 @@ class TablesController < ApplicationController
             flash[:alert] = "Sorry, something went wrong"
             render :new
         end
+    end
+
+    def reservation
+
     end
 
     private

@@ -1,0 +1,9 @@
+<h1>Available Tables</h1>
+
+<% @tables.each do |table| %>
+    <h2><%= table.table_name %></h2>
+    <h3>Hosted by: <%= Host.find(table.host_id).name %></h3>
+    <h4>Date: <%= table.table_date.to_formatted_s(:long)%></h4>
+    <h4>Time: <%= table.table_time.strftime("Starts at %I:%M%p")%></h4>
+    <%= link_to "Reserve your seat", "tables/#{table.id}", method: 'post'%>
+<% end %>
