@@ -1,0 +1,29 @@
+<h1>Create a new table</h1>
+
+<% if @table.errors.any? %>
+    <% @table.errors.full_messages.each do |message|%>
+        <p><%= message %></p>
+    <% end %>
+<% end %>
+
+<%= form_for @table do |t| %>
+    <div class="field">
+        <%= t.label :table_name %>
+        <%= t.text_field :table_name %>
+    </div>
+    <div class="field">
+        <%= t.label :table_date %>
+        <%= t.date_field :table_date %>
+    </div>
+    <div class="field">
+        <%= t.label :table_time %>
+        <%= t.time_field :table_time %>
+    </div>
+    <div class="field">
+        <%= t.label :number_of_seats%>
+        <%= t.number_field :number_of_seats %>
+    </div>
+    <div class="field submit">
+        <%= t.submit "Create Table" %>
+    </div>
+<% end %>
