@@ -19,4 +19,9 @@ class HostTest < ActiveSupport::TestCase
        test_host = Host.new(name: 'teststore', address: 'test', phone: '1234567890', email: 'test@store.com', password: 'pass')
         assert_not test_host.valid?
     end
+
+    test 'create new host' do
+        test_host = Host.new(name: 'teststore', address: 'test', phone: '1234567890', email: 'test@store.com', password: 'password')
+        assert test_host.valid?
+    end
 end
