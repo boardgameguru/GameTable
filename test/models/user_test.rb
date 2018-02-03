@@ -19,4 +19,9 @@ class UserTest < ActiveSupport::TestCase
         user_test = User.create(first_name: 'Test', last_name: 'test', email: 'test@gmail.com', password: 'pass', password_confirmation: 'pass')
         assert_not user_test.valid?
     end
+
+    test 'create new user' do
+        user_test = User.create(first_name: 'Test', last_name: 'test', email: 'test@gmail.com', password: 'password', password_confirmation: 'password')
+        assert user_test.valid?
+    end
 end
