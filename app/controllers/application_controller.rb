@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
 
     def require_login
         unless current_user || current_host
-            flash[:error] = "Please log in first"
-            redirect_to new_sessions_path
+            flash[:danger] = "Please log in or register"
+            redirect_to new_users_path
         end
     end
 end
