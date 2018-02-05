@@ -7,31 +7,31 @@
 <% end %>
 
 <%= form_for @host, url: hosts_path,  html: {method: "patch"} do |u| %>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :name %>
-        <%= u.text_field :name %>
+        <%= u.text_field :name, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :address %>
-        <%= u.text_field :address %>
+        <%= u.text_field :address, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :phone %>
-        <%= u.telephone_field :phone %>
+        <%= u.telephone_field :phone, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :email %>
-        <%= u.email_field :email %>
+        <%= u.email_field :email, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :password %>
-        <%= u.password_field :password %>
+        <%= u.password_field :password, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :password_confirmation %>
-        <%= u.password_field :password_confirmation %>
+        <%= u.password_field :password_confirmation, class: "form-control" %>
     </div>
-    <div class="field submit">
-        <%= u.submit "Update Information" %>
+    <div class="submit">
+        <%= u.submit "Update Information", class: "btn btn-primary" %>
     </div>
 <% end %>

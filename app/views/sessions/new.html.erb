@@ -1,15 +1,15 @@
 <h1>Log In!</h1>
 
 <%= form_for :session, url: sessions_path do |s| %>
-    <div class="field">
+    <div class="form-group">
         <%= s.label :email %>
-        <%= s.email_field :email %>
+        <%= s.email_field :email, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= s.label :password %>
-        <%= s.password_field :password %>
+        <%= s.password_field :password, class: "form-control" %>
     </div>
-    <div class="field submit">
-        <%= s.submit "Log In" %>
+    <div class="submit">
+        <%= s.submit "Log In", class: "btn btn-primary " %>
     </div>
 <% end %>

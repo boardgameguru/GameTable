@@ -7,29 +7,29 @@
 <% end %>
 
 <%= form_for @user do |u| %>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :first_name %>
-        <%= u.text_field :first_name %>
+        <%= u.text_field :first_name, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :last_name %>
-        <%= u.text_field :last_name %>
+        <%= u.text_field :last_name, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :email %>
-        <%= u.email_field :email %>
+        <%= u.email_field :email, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :password %>
-        <%= u.password_field :password %>
+        <%= u.password_field :password, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= u.label :password_confirmation %>
-        <%= u.password_field :password_confirmation %>
+        <%= u.password_field :password_confirmation, class: "form-control" %>
     </div>
     <div class="field submit">
-        <%= u.submit "Sign Up" %>
+        <%= u.submit "Sign Up", class: "btn btn-primary" %>
     </div>
 <% end %>
 <hr>
-<h3>Already a member? <%= link_to "Log In Now", new_sessions_path %></h3>
+<h3>Already a member? <%= link_to "Log In Now", new_sessions_path, class: "text-primary" %></h3>

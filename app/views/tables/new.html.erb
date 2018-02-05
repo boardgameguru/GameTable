@@ -7,23 +7,23 @@
 <% end %>
 
 <%= form_for @table do |t| %>
-    <div class="field">
+    <div class="form-group">
         <%= t.label :table_name %>
-        <%= t.text_field :table_name %>
+        <%= t.text_field :table_name, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= t.label :table_date %>
-        <%= t.date_field :table_date %>
+        <%= t.date_field :table_date, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= t.label :table_time %>
-        <%= t.time_field :table_time %>
+        <%= t.time_field :table_time, class: "form-control" %>
     </div>
-    <div class="field">
+    <div class="form-group">
         <%= t.label :number_of_seats%>
-        <%= t.number_field :number_of_seats %>
+        <%= t.number_field :number_of_seats, class: "form-control" %>
     </div>
-    <div class="field submit">
-        <%= t.submit "Create Table" %>
+    <div class="submit">
+        <%= t.submit "Create Table", class: "btn btn-primary" %>
     </div>
 <% end %>
