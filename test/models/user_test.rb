@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
     test '3 users exist' do
-       assert 3, User.all.size
+       assert_equal 3, User.all.size
     end
 
     test 'cannot create blank user' do

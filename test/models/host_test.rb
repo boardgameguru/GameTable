@@ -2,7 +2,7 @@ require 'test_helper'
 
 class HostTest < ActiveSupport::TestCase
     test 'two users exist' do
-       assert 2, Host.all.size
+       assert_equal 2, Host.all.size
     end
 
     test 'cannot create blank host' do
