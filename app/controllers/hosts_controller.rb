@@ -12,11 +12,11 @@ class HostsController < ApplicationController
         @host = Host.new(host_params)
 
         if @host.save
-            flash[:notice] = "Welcome to GameTable, #{@host.name}!"
+            flash[:success] = "Welcome to GameTable, #{@host.name}!"
             session[:host_id] = @host.id
             redirect_to dashboard_path
         else
-            flash[:alert] = "We're sorry, but something went wrong."
+            flash[:danger] = "We're sorry, but something went wrong."
             render :new
         end
     end
@@ -29,10 +29,10 @@ class HostsController < ApplicationController
         @host = current_host
 
         if @host.update_attributes(host_params)
-            flash[:notice] = "Your information has been updated"
+            flash[:success] = "Your information has been updated"
             redirect_to root_path
         else
-            flash[:alert] = "Sorry, something went wrong"
+            flash[:danger] = "Sorry, something went wrong"
             render :edit
         end
     end
