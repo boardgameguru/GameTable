@@ -11,11 +11,11 @@ class SessionsController < ApplicationController
             user = User.find_by email: session_params[:email]
 
             if user.authenticate(session_params[:password])
-                flash[:notice] = "Successfuly logged in as #{user.first_name} #{}!"
+                flash[:success] = "Successfuly logged in as #{user.first_name} #{}!"
                 session[:user_id] = user.id
                 redirect_to dashboard_path
             else
-                flash[:alert] = "Invalid credentials"
+                flash[:danger] = "Invalid credentials"
                 render :new
             end
 
@@ -23,11 +23,11 @@ class SessionsController < ApplicationController
             host = Host.find_by email: session_params[:email]
 
             if host.authenticate(session_params[:password])
-                flash[:notice] = "Successfuly logged in as #{host.name}!"
+                flash[:success] = "Successfuly logged in as #{host.name}!"
                 session[:host_id] = host.id
                 redirect_to dashboard_path
             else
-                flash[:alert] = "Invalid credentials"
+                flash[:danger] = "Invalid credentials"
                 render :new
             end
         end
@@ -36,11 +36,11 @@ class SessionsController < ApplicationController
   def destroy
         if session[:user_id]
             session.delete(:user_id)
-            flash[:notice] = "Logged out successfully"
+            flash[:success] = "Logged out successfully"
             redirect_to root_path
         elsif
             session.delete(:host_id)
-            flash[:notice] = "Logged out successfully"
+            flash[:danger] = "Logged out successfully"
             redirect_to root_path
         end
   end
