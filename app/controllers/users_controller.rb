@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def new
         if current_user()
-            flash[:notice] = "You're already logged in"
+            flash[:success] = "You're already logged in"
             redirect_to root_path
         else
             @user = User.new
@@ -17,11 +17,11 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            flash[:notice] = "Successfully signed up!"
+            flash[:success] = "Successfully signed up!"
             session[:user_id] = @user.id
             redirect_to dashboard_path
         else
-            flash[:alert] = "Please try again. Something went wrong."
+            flash[:danger] = "Please try again. Something went wrong."
             render :new
         end
     end
@@ -35,10 +35,10 @@ class UsersController < ApplicationController
         @user = current_user
 
         if @user.update_attributes(user_params)
-            flash[:notice] = "Your information has been updated"
+            flash[:success] = "Your information has been updated"
             redirect_to root_path
         else
-            flash[:alert] = "Sorry, something went wrong"
+            flash[:danger] = "Sorry, something went wrong"
             render :edit
         end
     end

@@ -13,10 +13,10 @@ class TablesController < ApplicationController
         @table.host_id = current_host.id
 
         if @table.save
-            flash[:notice] = "Your table has been created!"
+            flash[:success] = "Your table has been created!"
             redirect_to dashboard_path
         else
-            flash[:alert] = "Sorry, something went wrong"
+            flash[:danger] = "Sorry, something went wrong"
             render :new
         end
     end
@@ -25,10 +25,10 @@ class TablesController < ApplicationController
         @table = Table.find(params[:table_id])
 
         if @table.users << current_user
-            flash[:notice] = "You have been registered"
+            flash[:success] = "You have been registered"
             redirect_to dashboard_path
         else
-            flash[:alert] = "Sorry, something went wrong. Please try again."
+            flash[:danger] = "Sorry, something went wrong. Please try again."
             redirect_to action: "index"
         end
     end
